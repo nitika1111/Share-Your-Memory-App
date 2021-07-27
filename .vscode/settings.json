@@ -1,0 +1,14 @@
+{
+  "emmet.excludeLanguages": ["markdown"],
+  "emmet.showSuggestionsAsSnippets": true,
+
+  "emmet.triggerExpansionOnTab": true,
+  "editor.quickSuggestions": true,
+  "editor.fontSize": 18,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  //"editor.codeActionsOnSave": null,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  }
+}
