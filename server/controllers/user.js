@@ -3,8 +3,9 @@ import jwt from 'jsonwebtoken';
 import User from '../models/user.js';
 
 export const signin = async (req, res) => {
-  const { email, passwsord } = req.body;
-
+  console.log('Inside Server Controllers Signin');
+  const { email, password } = req.body;
+  console.log('Inside Server Controllers Signin');
   try {
     const existingUser = await User.findOne({ email });
 
@@ -24,12 +25,14 @@ export const signin = async (req, res) => {
       'secret',
       { expiresIn: '1h' }
     );
+    console.log('Token generated');
 
     res.status(200).json({ result: existingUser, token });
   } catch (error) {
     res.status(500).json({ message: 'Server Error!' });
   }
 };
+
 export const signup = async (req, res) => {
   const { email, password, confirmPassword, firstName, lastName } = req.body;
 
