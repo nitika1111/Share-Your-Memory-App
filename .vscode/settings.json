@@ -1,9 +1,9 @@
 {
   "emmet.excludeLanguages": ["markdown"],
-  "emmet.showSuggestionsAsSnippets": true,
+  "emmet.showSuggestionsAsSnippets": false,
 
   "emmet.triggerExpansionOnTab": true,
-  "editor.quickSuggestions": true,
+  "editor.quickSuggestions": false,
   "editor.fontSize": 18,
   "editor.tabSize": 2,
   "editor.wordWrap": "on",

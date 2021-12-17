@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 
 import PostMessage from '../models/postMessage.js';
 
+// get all posts
 export const getPosts = async (req, res) => {
   const { page } = req.query;
   try {
@@ -25,6 +26,19 @@ export const getPosts = async (req, res) => {
   }
 };
 
+// get single posts
+export const getPost = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const post = await PostMessage.findById(id);
+    res.status(200).json(post);
+  } catch (err) {
+    res.status(404).json({ message: err.message });
+  }
+};
+
+// get all posts by searchQuery
 export const getPostsBySearch = async (req, res) => {
   try {
     const { searchQuery, tags } = req.query;
@@ -35,11 +49,13 @@ export const getPostsBySearch = async (req, res) => {
     });
 
     res.json({ data: posts });
+    //console.log('Inside controller getPostsBySearch---> data:', data);
   } catch (err) {
     res.status(404).json({ message: err.message });
   }
 };
 
+// create a post
 export const createPost = async (req, res) => {
   const post = req.body;
   // const newPost = new PostMessage(post);
@@ -58,6 +74,7 @@ export const createPost = async (req, res) => {
   }
 };
 
+// update a post
 export const updatePost = async (req, res) => {
   const { id } = req.params;
   const post = req.body;
@@ -76,7 +93,7 @@ export const updatePost = async (req, res) => {
 
   res.json(updatedPost);
 };
-
+// delete a post
 export const deletePost = async (req, res) => {
   const { id } = req.params;
   // check if id is valid mongoose id
@@ -90,6 +107,7 @@ export const deletePost = async (req, res) => {
   }
 };
 
+// like a post
 export const likePost = async (req, res) => {
   const { id } = req.params;
 
