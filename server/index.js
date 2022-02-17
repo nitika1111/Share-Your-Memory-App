@@ -26,11 +26,10 @@ app.get('/', (req, res) => {
 const PORT = process.env.PORT || 5000;
 
 // Database Connection
-const CONNECTION_URL =
-  'mongodb+srv://admin:admin@cluster0.xq7rf.mongodb.net/memoriesDatabase?retryWrites=true&w=majority';
 mongoose
-  //.connect(process.env.CONNECTION_URL, {
-  .connect(CONNECTION_URL, {
+  .connect(process.env.CONNECTION_URL, {
+    //.connect(CONNECTION_URL, {
+
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
