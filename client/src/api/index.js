@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'http://localhost:5000' });
+const url = 'https://memories-nitika.herokuapp.com';
+//const API = axios.create({ baseURL: 'http://localhost:5000' });
+const API = axios.create({ baseURL: url });
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem('profile')) {
@@ -11,13 +13,13 @@ API.interceptors.request.use((req) => {
   return req;
 });
 
-//const url = 'https://memories-nitika.herokuapp.com/posts';
-
 // fetch a single Post
 export const fetchPost = (id) => API.get(`/posts/${id}`);
+//export const fetchPost = (id) => API.get(`${url}/${id}`);
 
 // fetch all posts
 export const fetchPosts = (page) => API.get(`/posts?page=${page}`);
+//export const fetchPosts = (page) => API.get(`${url}?page=${page}`);
 
 // fetch all posts as per searchQuery
 export const fetchPostsBySearch = (searchQuery) =>
