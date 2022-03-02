@@ -1,8 +1,10 @@
 import axios from 'axios';
 
-const url = 'https://memories-nitika.herokuapp.com';
+//const url = 'https://memories-nitika.herokuapp.com';
 //const API = axios.create({ baseURL: 'http://localhost:5000' });
-const API = axios.create({ baseURL: url });
+const API = axios.create({
+  baseURL: 'https://memories-nitika.herokuapp.com',
+});
 
 API.interceptors.request.use((req) => {
   if (localStorage.getItem('profile')) {
